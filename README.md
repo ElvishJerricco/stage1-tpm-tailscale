@@ -16,19 +16,19 @@ block-beta
   space:5
   rkey["Decrypted Root Key"]
   space
-  sshd
+  TPM
   space
   skey["Decrypted SSH / TS"]
-  skey --> sshd
   rvol --> rkey
   rkey --"Unlocks"--> r
   svol --> skey
+  TPM --> skey
+  TPM --> rkey
   space:5
   Passphrase
   space
-  TPM
-  TPM --> skey
-  TPM --> rkey
+  sshd
   Passphrase --> rkey
-  sshd --> Passphrase
+  sshd --"User enters"--> Passphrase
+  skey --> sshd
 ```
